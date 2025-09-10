@@ -1,0 +1,26 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Generate index.html with JSON embedded
+        run: |
+          # Escape JSON into one line
+          JSON=$(jq -c . varhanici-data-merged.json)
+          # Replace placeholder in template
+          sed "s|__JSON_DATA__|$JSON|" template.html > index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .   # current dir, includes index.html
+          publish_branch: gh-pages
