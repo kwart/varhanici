@@ -18,13 +18,16 @@ jobs:
 
       - name: Generate index.html with JSON embedded
         run: |
+          mkdir public
+          cp CNAME public
           jq -c . varhanici-data-merged.json > data.min.json
           # Insert into template directly
-          awk 'NR==FNR{json=$0; next} {gsub(/__JSON_DATA__/, json)}1' data.min.json template.html > index.html
+          awk 'NR==FNR{json=$0; next} {gsub(/__JSON_DATA__/, json)}1' data.min.json template.html > public/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .   # current dir, includes index.html
+          publish_dir: ./public
           publish_branch: gh-pages
+          force_orphan: true
