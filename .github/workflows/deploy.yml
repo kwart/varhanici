@@ -18,8 +18,6 @@ jobs:
 
       - name: Generate index.html with JSON embedded
         run: |
-          mkdir public
-          cp CNAME organ.jpg public
           jq -c . varhanici-data-merged.json > data.min.json
           # Insert into template directly
           awk 'NR==FNR{json=$0; next} {gsub(/__JSON_DATA__/, json)}1' data.min.json template.html > public/index.html
