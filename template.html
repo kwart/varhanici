@@ -67,6 +67,15 @@ input {
   margin: 0.5rem 0;
 }
 
+.songs a {
+  color: #1a4fb3;
+  text-decoration: none;
+}
+
+.songs a:hover {
+  text-decoration: underline;
+}
+
 .texts p {
   margin: 0.5rem 0;
   line-height: 1.6;
@@ -139,7 +148,12 @@ input {
         div.className = "day";
         div.innerHTML = `
           <h2>${d.liturgicky_den}</h2>
-          <div class="songs">🎵 ${d.doporucene_pisne.join(", ")}</div>
+          <div class="songs">🎵 ${
+            d.doporucene_pisne
+              .map(n => `<a href="https://kancional.cz/${n}" target="_blank" rel="noopener">${n}</a>`)
+              .join(", ")
+          }</div>
+
           <div class="texts">
             ${d.komentare.map(t => `<p>${t}</p>`).join("")}
           </div>
