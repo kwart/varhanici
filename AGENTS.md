@@ -28,11 +28,10 @@ Manage source data (`varhanici-data.json`) and web templates for site varhanici.
 
 ### Data Conventions
 
-- **`liturgicky_den`**: `MM-DD` date prefix followed by Czech name (e.g. `"01-01 Slavnost Matky Boží, Panny Marie"`)
+- **`liturgicky_den`**: Czech liturgical day name (e.g. `MM-DD` date prefixed `"01-01 Slavnost Matky Boží, Panny Marie"`, `"25. neděle v mezidobí (C)"`, `"Zmrtvýchvstání Páně - vigilie"`)
 - **`doporucene_pisne`**: Array of **string** IDs (not numbers) — each references a song at `https://kancional.cz/{id}`
 - **`komentar`**: Single string with liturgical guidance for the organist
 - All content is in **Czech**
-- Entries are sorted by date
 
 ## Build & Deployment
 
