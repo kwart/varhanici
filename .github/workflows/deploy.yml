@@ -20,7 +20,7 @@ jobs:
         run: |
           jq -c . varhanici-data.json > data.min.json
           # Insert into template directly
-          awk 'NR==FNR{json=$0; next} {gsub(/__JSON_DATA__/, json)}1' data.min.json template.html > public/index.html
+          awk 'NR==FNR{json=$0; next} {gsub(/__VARHANICI_JSON_DATA__/, json)}1' data.min.json template.html > public/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

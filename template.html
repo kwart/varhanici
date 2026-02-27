@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Varhaníci - doporučené písně</title>
+  <meta name="description" content="Doporučené písně pro české varhaníky na jednotlivé liturgické dny.">
   <style>
 body {
   font-family: system-ui, sans-serif;
@@ -83,7 +84,7 @@ input {
 
 .no-results {
   font-style: italic;
-  color: #777;
+  color: #555;
   margin-top: 2rem;
 }
 
@@ -130,7 +131,7 @@ input {
     <h1>Varhaníci - doporučené písně</h1>
     <p>Data na této stránce pochází z bývalého portálu <i>varhanici.info</i> jejímž autorem byl Miroslav Pošvář.<br/>
        Opravy je možné zasílat přes <a href="https://github.com/kwart/varhanici">GitHub projekt kwart/varhanici</a>.</p>
-    <input id="search" placeholder="🔍 Hledat podle názvu, písní nebo textu…" />
+    <input id="search" aria-label="Hledat podle názvu, písní nebo textu" placeholder="🔍 Hledat podle názvu, písní nebo textu…" />
 
     <div id="results"></div>
   </div>
@@ -139,7 +140,7 @@ input {
   <script type="module">
     import Fuse from "https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.esm.js";
 
-    const data = __JSON_DATA__;
+    const data = __VARHANICI_JSON_DATA__;
 
     const resultsDiv = document.getElementById('results');
     const searchInput = document.getElementById('search');
@@ -154,7 +155,10 @@ input {
     function render(list) {
       resultsDiv.innerHTML = "";
       if (list.length === 0) {
-        resultsDiv.innerHTML = "<div class='no-results'>Žádné výsledky</div>";
+        const noResults = document.createElement('div');
+        noResults.className = 'no-results';
+        noResults.textContent = 'Žádné výsledky';
+        resultsDiv.appendChild(noResults);
         return;
       }
       list.forEach(item => {
@@ -165,7 +169,7 @@ input {
           <h2>${d.liturgicky_den}</h2>
           <div class="songs">🎵 ${
             d.doporucene_pisne
-              .map(n => `<a href="https://kancional.cz/${n}" target="_blank" rel="noopener">${n}</a>`)
+              .map(n => /XX/.test(n) ? n : `<a href="https://kancional.cz/${n}" target="_blank" rel="noopener">${n}</a>`)
               .join(", ")
           }</div>
 
