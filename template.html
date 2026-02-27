@@ -131,7 +131,7 @@ input {
 
     // Fuse.js setup
     const fuse = new Fuse(data, {
-      keys: ['liturgicky_den', 'doporucene_pisne', 'komentare'],
+      keys: ['liturgicky_den', 'doporucene_pisne', 'komentar'],
       threshold: 0.35,   // lower = stricter, higher = fuzzier
       minMatchCharLength: 2
     });
@@ -155,7 +155,7 @@ input {
           }</div>
 
           <div class="texts">
-            ${d.komentare.map(t => `<p>${t}</p>`).join("")}
+            <p>${d.komentar}</p>
           </div>
         `;
         resultsDiv.appendChild(div);
