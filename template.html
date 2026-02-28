@@ -142,12 +142,23 @@ input {
 
     const data = __VARHANICI_JSON_DATA__;
 
+    // Convert MM-DD prefix to Czech D.M. format
+    function formatLiturgickyDen(text) {
+      return text.replace(/^(\d{2})-(\d{2}) /, (_, mm, dd) =>
+        `${parseInt(dd)}.${parseInt(mm)}. `
+      );
+    }
+
+    data.forEach(d => {
+      d.liturgicky_den_cz = formatLiturgickyDen(d.liturgicky_den);
+    });
+
     const resultsDiv = document.getElementById('results');
     const searchInput = document.getElementById('search');
 
     // Fuse.js setup
     const fuse = new Fuse(data, {
-      keys: ['liturgicky_den', 'doporucene_pisne', 'komentar'],
+      keys: ['liturgicky_den', 'liturgicky_den_cz', 'doporucene_pisne', 'komentar'],
       threshold: 0.35,   // lower = stricter, higher = fuzzier
       minMatchCharLength: 2
     });
@@ -166,7 +177,7 @@ input {
         const div = document.createElement('div');
         div.className = "day";
         div.innerHTML = `
-          <h2>${d.liturgicky_den}</h2>
+          <h2>${d.liturgicky_den_cz}</h2>
           <div class="songs">🎵 ${
             d.doporucene_pisne
               .map(n => /XX/.test(n) ? n : `<a href="https://kancional.cz/${n}" target="_blank" rel="noopener">${n}</a>`)
