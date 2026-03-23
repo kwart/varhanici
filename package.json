@@ -1,6 +1,6 @@
 {
   "private": true,
   "dependencies": {
-    "fuse.js": "6.6.2"
+    "fuse.js": "7.1.0"
   }
 }
