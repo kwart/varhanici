@@ -28,9 +28,10 @@ jobs:
 
       - name: Generate index.html with JSON embedded
         run: |
+          FUSEJS_VERSION=$(jq -r '.dependencies["fuse.js"]' package.json)
           jq -c . varhanici-data.json > data.min.json
-          # Insert into template directly
-          awk 'NR==FNR{json=$0; next} {gsub(/__VARHANICI_JSON_DATA__/, json)}1' data.min.json template.html > public/index.html
+          sed "s/__FUSEJS_VERSION__/$FUSEJS_VERSION/" template.html > template.resolved.html
+          awk 'NR==FNR{json=$0; next} {gsub(/__VARHANICI_JSON_DATA__/, json)}1' data.min.json template.resolved.html > public/index.html
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
