@@ -40,13 +40,37 @@ h1 {
   margin-bottom: 1rem;
 }
 
-input {
-  padding: 0.75rem;
+.search-wrap {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.search-wrap input {
+  padding: 0.75rem 2.2rem 0.75rem 0.75rem;
   width: 100%;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+
+.search-clear {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  line-height: 1;
+  display: none;
+}
+.search-clear:hover {
+  color: #333;
 }
 
 /* result card */
@@ -146,7 +170,10 @@ input {
   <div class="container">
     <h1>Varhaníci.eu - doporučené písně z kancionálu</h1>
     <p>Pomocník pro varhaníky v katolických kostelích. Vyhledejte doporučené písně z <a href="https://kancional.cz/" target="_blank" rel="noopener">kancionálu</a> pro jednotlivé liturgické dny — zadejte název svátku, datum nebo číslo písně.</p>
-    <input id="search" aria-label="Hledat podle názvu, písní nebo textu" placeholder="🔍 Hledat podle názvu, písní nebo textu…" />
+    <div class="search-wrap">
+      <input id="search" aria-label="Hledat podle názvu, písní nebo textu" placeholder="🔍 Hledat podle názvu, písní nebo textu…" />
+      <button id="search-clear" class="search-clear" type="button" aria-label="Vymazat hledání">&times;</button>
+    </div>
     <div id="quick-buttons" style="display:flex;gap:0.5rem;margin:-1rem 0 1.2rem;flex-wrap:wrap;">
       <button class="quick-btn" data-offset="0">Dnes</button>
       <button class="quick-btn" data-offset="1">Zítra</button>
@@ -222,8 +249,11 @@ input {
     render(data);
 
     // Search
+    const clearBtn = document.getElementById('search-clear');
+
     function doSearch() {
       const query = searchInput.value.trim();
+      clearBtn.style.display = query ? 'block' : 'none';
       if (!query) {
         render(data);
       } else {
@@ -232,6 +262,12 @@ input {
       }
     }
     searchInput.addEventListener('input', doSearch);
+
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      doSearch();
+      searchInput.focus();
+    });
 
     // Quick-day buttons using liturgie.cz calendar
     function getLiturgicalName(date) {
