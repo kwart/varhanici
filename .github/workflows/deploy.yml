@@ -3,6 +3,8 @@ name: Build & Deploy
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -16,6 +18,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run tests
+        run: node test-buttons.mjs
+
       - name: Generate index.html with JSON embedded
         run: |
           jq -c . varhanici-data.json > data.min.json
@@ -23,6 +33,7 @@ jobs:
           awk 'NR==FNR{json=$0; next} {gsub(/__VARHANICI_JSON_DATA__/, json)}1' data.min.json template.html > public/index.html
 
       - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
