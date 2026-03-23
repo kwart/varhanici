@@ -30,7 +30,10 @@ jobs:
         run: |
           FUSEJS_VERSION=$(jq -r '.dependencies["fuse.js"]' package.json)
           jq -c . varhanici-data.json > data.min.json
-          sed "s/__FUSEJS_VERSION__/$FUSEJS_VERSION/" template.html > template.resolved.html
+          GIT_COMMIT_SHORT=$(git rev-parse --short HEAD)
+          sed -e "s/__FUSEJS_VERSION__/$FUSEJS_VERSION/" \
+              -e "s/__GIT_COMMIT_SHORT__/$GIT_COMMIT_SHORT/g" \
+              template.html > template.resolved.html
           awk 'NR==FNR{json=$0; next} {gsub(/__VARHANICI_JSON_DATA__/, json)}1' data.min.json template.resolved.html > public/index.html
 
       - name: Deploy to GitHub Pages
