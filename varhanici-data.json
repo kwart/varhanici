@@ -2399,12 +2399,13 @@
       "403",
       "404",
       "406",
+      "407",
       "408",
       "412",
       "703",
       "714"
     ],
-    "komentar": "Vstal jsem z mrtvých, a jsem stále s tebou. Aleluja. 401, nebo 402, 403, 404, 408, 412 + 703, 714. Sekvence možno 406."
+    "komentar": "Pán skutečně vstal z mrtvých. Aleluja. Jemu buď sláva a vláda na věčné časy. Mešní 401 (nebo do obětování 402, 403, 404, 408, 412; k přijímání 703, 714); před evangeliem povinná sekvence Victimae paschali laudes (v Mešních zpěvech český text), možné ji nahradit 406 (všechny sloky!); závěr 407."
   },
   {
     "liturgicky_den": "Slavnost Zmrtvýchvstání Páně - vigilie",
@@ -2532,35 +2533,5 @@
       "710"
     ],
     "komentar": "Vstup 710 (1.+ 2.sl.), mytí nohou 307, příprava darů 681, přijímání 710 (3.- 7.), přenesení Nejsvětější Svátosti - 704. (po Gloria varhany a zvony umlkají)"
-  },
-  {
-    "liturgicky_den": "Zmrtvýchvstání Páně - v den slavnosti",
-    "doporucene_pisne": [
-      "401",
-      "402",
-      "403",
-      "404",
-      "406",
-      "407",
-      "408",
-      "412",
-      "703",
-      "714"
-    ],
-    "komentar": "Pán skutečně vstal z mrtvých. Aleluja. Jemu buď sláva a vláda na věčné časy. Mešní 401 (nebo do obětování 402, 403, 404, 408, 412; k přijímání 703, 714); před evangeliem povinná sekvence Victimae paschali laudes (v Mešních zpěvech český text), možné ji nahradit 406 (všechny sloky!); závěr 407."
-  },
-  {
-    "liturgicky_den": "Zmrtvýchvstání Páně - vigilie",
-    "doporucene_pisne": [
-      "402",
-      "403",
-      "404",
-      "407",
-      "408",
-      "412",
-      "511",
-      "720"
-    ],
-    "komentar": "Kropení lidu křestní vodou - 511, příprava darů - 402, 403, 404, 408, 412, přijímání 720, závěr 407."
   }
 ]
