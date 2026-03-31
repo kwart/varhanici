@@ -8,7 +8,7 @@ Manage source data (`varhanici-data.json`) and web templates for site varhanici.
 
 | File | Role |
 |------|------|
-| `varhanici-data.json` | Main database — 231 liturgical day entries |
+| `varhanici-data.json` | Main database — liturgical day entries |
 | `template.html` | Single-page app template (HTML + CSS + JS) |
 | `public/organ.jpg` | Background image |
 | `public/CNAME` | Custom domain config (`varhanici.eu`) |
@@ -48,6 +48,7 @@ Build steps (in GitHub Actions):
 
 - **Fuse.js 6.6.2** — client-side fuzzy search, loaded from CDN (`threshold: 0.35`)
 - **kancional.cz** — song detail links (`https://kancional.cz/{songNumber}`)
+- **kalendar.js** — third-party Liturgical calendar for quick day lookup
 
 ## Common Tasks
 
