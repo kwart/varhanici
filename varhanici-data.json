@@ -940,7 +940,7 @@
     "komentar": "Navrhuji 404, k přijímání 714."
   },
   {
-    "liturgicky_den": "2. neděle velikonoční (A)",
+    "liturgicky_den": "2. neděle velikonoční (A) (Božího milosrdenství)",
     "doporucene_pisne": [
       "403",
       "404",
@@ -953,7 +953,7 @@
     "komentar": "Otevřte své srdce, radujte se ze slávy a vzdávejte díky Bohu, neboť on vás povolal k nebeskému království. Aleluja. Dle vstupní antifony můžeme zpívat 404. Vzhledem k evangeliu o pochybujícím apoštolu Tomášovi můžeme do obětování zpívat 413, k přijímání 703. Nebo mešní píseň 410, nebo do obětování 403, k přijímání 720. O apoštolu Tomášovi se zpívá i v písni 411."
   },
   {
-    "liturgicky_den": "2. neděle velikonoční (B)",
+    "liturgicky_den": "2. neděle velikonoční (B) (Božího milosrdenství)",
     "doporucene_pisne": [
       "403",
       "404",
@@ -968,20 +968,11 @@
     "komentar": "Ať se ti koří celá země, Bože, ať ti zpívá, ať opěvuje tvé jméno. Můžeme zpívat do obětování 404, k přijímání 714, závěr 407. Do obětování: 404; 413 (5. sloka o Tomášovi), přijímání 703; 714. Nebo 410, nebo 403 - přijímání 720. Také můžeme zpívat 411."
   },
   {
-    "liturgicky_den": "2. neděle velikonoční (C)",
-    "doporucene_pisne": [
-      "404",
-      "407",
-      "413",
-      "714"
-    ],
-    "komentar": "Ať se ti koří celá země, Bože, ať ti zpívá, ať opěvuje tvé jméno. Navrhuji zpívat do obětování 404, k přijímání 714, závěr 407. 413 - v 5. sloce je zmínka o Tomášovi."
-  },
-  {
     "liturgicky_den": "2. neděle velikonoční (C) (Božího milosrdenství)",
     "doporucene_pisne": [
       "403",
       "404",
+      "407",
       "410",
       "411",
       "413",
@@ -990,7 +981,7 @@
       "714",
       "720"
     ],
-    "komentar": "Jako novorozené děti žádejte duchovní, nefalšované mléko (Božího slova), abyste jím rostli ke spáse. Aleluja. Do obětování 404, k přijímání 714. Nebo 413 (5. sl. o Tomášovi), přijímání 703. Nebo do obětování 403, k přijímání 720. Nebo mešní 410. Můžeme také 411 (o Tomáši 7.-9. sl.), přijímání 712."
+    "komentar": "Jako novorozené děti žádejte duchovní, nefalšované mléko (Božího slova), abyste jím rostli ke spáse. Aleluja. Do obětování 404, k přijímání 714, závěr 407. Nebo 413 (5. sl. o Tomášovi), přijímání 703. Nebo do obětování 403, k přijímání 720. Nebo mešní 410. Můžeme také 411 (o Tomáši 7.-9. sl.), přijímání 712."
   },
   {
     "liturgicky_den": "20. neděle v mezidobí (A)",
